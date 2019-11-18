@@ -19,7 +19,7 @@ export const initialState = [
         completed: false,
         id: 3892987592
     }
-]
+];
 
 export const todoReducer = (state, action) => {
     switch (action.type) {

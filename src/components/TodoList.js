@@ -1,17 +1,13 @@
-import React, { useState, useReducer } from "react";
-import { initialState, todoReducer } from '../reducers/todoReducer';
+import React from "react";
 
-const TodoList = () => {
-    const [state, dispatch] = useReducer(todoReducer, initialState);
-
-
+const TodoList = (props) => {
 
     return (
         <div className="todo-list">
-            {state.map(item => (
-                <div className="todo">
-                    {item.item}
-                    <button>Completed? {item.completed}</button>
+            {props.state.map(item => (
+                <div key={item.id} className={item.completed ? "completed" : ""}>
+                    <p>{item.item}</p>
+                    
                 </div>
             ))}
         </div>
