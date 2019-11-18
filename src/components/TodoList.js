@@ -4,7 +4,7 @@ const TodoList = (props) => {
 
     return (
         <div className="todo-list">
-            {props.state.map(item => (
+            {props.state.todos.map(item => (
                 <div key={item.id} className={item.completed ? "completed" : ""}>
                     <p>{item.item}</p>
                     

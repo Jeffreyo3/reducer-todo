@@ -1,31 +1,45 @@
-export const initialState = [
+export const initialState = {
+    todos: [
     {
         item: 'Learn about reducers',
         completed: false,
-        id: 3892987589
+        id: 1
     },
     {
         item: 'Write about reducers',
         completed: false,
-        id: 3892987590
+        id: 2
     },
     {
         item: 'Create a reducer',
         completed: false,
-        id: 3892987591
+        id: 3
     },
     {
         item: 'Teach about reducers',
         completed: false,
-        id: 3892987592
+        id: 4
     }
-];
+]};
 
 export const todoReducer = (state, action) => {
     switch (action.type) {
         case "TOGGLE_COMPLETED":
-            return { ...state, completed: !state.completed };
+            return( { ...state, completed: !state.completed }
+            );
+
+        case "ADD_TODO":
+            return(
+                {...state, todos: [...state.todos, {
+                    item: action.payload,
+                    completed: false,
+                    id: Date.now()
+                    }]
+                }
+            );
+
+
         default:
             return state;
-    }
+        };
 };
