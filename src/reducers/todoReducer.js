@@ -2,7 +2,7 @@ export const initialState = {
     todos: [
     {
         item: 'Learn about reducers',
-        completed: false,
+        completed: true,
         id: 1
     },
     {
@@ -25,7 +25,7 @@ export const initialState = {
 export const todoReducer = (state, action) => {
     switch (action.type) {
         case "TOGGLE_COMPLETED":
-            return( { ...state, completed: !state.completed }
+            return( { ...state, completed: !state.todos.completed }
             );
 
         case "ADD_TODO":

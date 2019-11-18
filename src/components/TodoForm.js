@@ -5,9 +5,13 @@ const TodoForm = (props) => {
     const handleChanges = e => {
         setTodo(e.target.value);
     };
+    const handleSubmit = e => {
+        e.preventDefault();
+        e.target.reset();
+    }
 
     return (
-        <form onSubmit={e => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
             <input 
                 placeholder="New To-Do Item" 
                 type="text" 

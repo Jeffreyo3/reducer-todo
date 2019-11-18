@@ -20,3 +20,8 @@
 .App-link {
   color: #09d3ac;
 }
+
+
+.todo-list .completed {
+  border: 2px solid red;
+}
