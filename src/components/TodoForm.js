@@ -22,10 +22,18 @@ const TodoForm = (props) => {
 
             <button
                 onClick={()=> {
-                    props.dispatch({type: "ADD_TODO", payload: todo });
+                    props.dispatch({ type: "ADD_TODO", payload: todo });
                 }}
             >
                 ADD
+            </button>
+
+            <button onClick={() => {
+                    props.dispatch({ type: "CLEAR_COMPLETED" })
+                    console.log(todo);
+                }}
+            >
+                CLEAR Completed
             </button>
         </form>
     );

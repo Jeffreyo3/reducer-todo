@@ -26,7 +26,7 @@ export const todoReducer = (state, action) => {
     switch (action.type) {
 
         case "ADD_TODO":
-            return(
+            return (
                 {...state, todos: [...state.todos, {
                     item: action.payload,
                     completed: false,
@@ -47,6 +47,11 @@ export const todoReducer = (state, action) => {
                     }})
             }
 
+        case "CLEAR_COMPLETED":
+            return {
+                ...state,
+                todos: state.todos.filter(item => !item.completed)
+            }
 
         default:
             return state;
