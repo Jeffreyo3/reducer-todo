@@ -11,11 +11,11 @@ const TodoForm = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} type="text">
             <input 
                 placeholder="New To-Do Item" 
                 type="text" 
-                value={todo} 
+                value={todo || ''} 
                 onChange={handleChanges}
                 className="todo-input"
             />
