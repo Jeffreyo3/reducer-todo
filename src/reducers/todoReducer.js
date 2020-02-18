@@ -1,39 +1,42 @@
 export const initialState = {
     todos: [
-    {
-        item: 'Learn about reducers',
-        completed: true,
-        id: 1
-    },
-    {
-        item: 'Write about reducers',
-        completed: false,
-        id: 2
-    },
-    {
-        item: 'Create a reducer',
-        completed: false,
-        id: 3
-    },
-    {
-        item: 'Teach about reducers',
-        completed: false,
-        id: 4
-    }
-]};
+        {
+            item: 'Learn about reducers',
+            completed: true,
+            id: 1
+        },
+        {
+            item: 'Write about reducers',
+            completed: false,
+            id: 2
+        },
+        {
+            item: 'Create a reducer',
+            completed: false,
+            id: 3
+        },
+        {
+            item: 'Teach about reducers',
+            completed: false,
+            id: 4
+        }
+    ]
+};
 
 export const todoReducer = (state, action) => {
     switch (action.type) {
 
         case "ADD_TODO":
-            return (
-                {...state, todos: [...state.todos, {
+            return {
+                ...state,
+                todos: [...state.todos,
+                {
                     item: action.payload,
                     completed: false,
                     id: Date.now()
-                    }]
-                }
-            );
+                }]
+            }
+
 
 
         case "TOGGLE_COMPLETED":
@@ -41,10 +44,11 @@ export const todoReducer = (state, action) => {
                 ...state,
                 todos: state.todos.map(item => {
                     if (item.id === action.payload) {
-                        return {...item, completed: !item.completed}
+                        return { ...item, completed: !item.completed }
                     } else {
                         return item;
-                    }})
+                    }
+                })
             }
 
         case "CLEAR_COMPLETED":
@@ -55,5 +59,5 @@ export const todoReducer = (state, action) => {
 
         default:
             return state;
-        };
+    };
 };
