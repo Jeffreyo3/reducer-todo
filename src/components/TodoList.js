@@ -7,7 +7,7 @@ const TodoList = (props) => {
             {props.state.todos.map(item => (
                 <div key={item.id} 
                 onClick={() => {
-                    props.dispatch({ type: "TOGGLE_COMPLETED" });
+                    props.dispatch({ type: "TOGGLE_COMPLETED", payload:item.id });
                   }}
                   className={item.completed ? "completed" : ""}>
                     <p>{item.item}</p>

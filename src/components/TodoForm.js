@@ -11,23 +11,28 @@ const TodoForm = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input 
-                placeholder="New To-Do Item" 
-                type="text" 
-                value={todo} 
-                onChange={handleChanges}
-                className="todo-input"
-            />
+        <>
+            <form onSubmit={handleSubmit}>
+                <input
+                    placeholder="New To-Do Item"
+                    type="text"
+                    value={todo}
+                    onChange={handleChanges}
+                    className="todo-input"
+                />
 
-            <button
-                onClick={()=> {
-                    props.dispatch({type: "ADD_TODO", payload: todo });
-                }}
-            >
-                ADD
+                <button
+                    onClick={() => {
+                        props.dispatch({ type: "ADD_TODO", payload: todo });
+                    }}
+                >
+                    ADD
             </button>
-        </form>
+            </form>
+            <button onClick={() => {
+                props.dispatch({type:"CLEAR_COMPLETE"})
+            }}>clear completed</button>
+        </>
     );
 };
 
